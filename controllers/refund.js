@@ -52,14 +52,8 @@ const getAllRefunds=async(req,res)=>{
 }
 
 const getSingleRefund=async(req,res)=>{
-    const {id}=req.user
-    const admin=await AdminModel.findById(id)
 
-    if(!admin){
-        throw new customErrorAPI("Not Eligible to access route",403)
-    }
-
-      const {refundNumber}=req.params
+   const {refundNumber}=req.params
 
       if(!refundNumber){
         throw new customErrorAPI("Enter a valid refund Number",StatusCodes.BAD_REQUEST)
