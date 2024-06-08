@@ -4,4 +4,4 @@ const cronResponse=async(req,res)=>{
 }
 
 
-modue.exports=cronResponse
+module.exports=cronResponse
