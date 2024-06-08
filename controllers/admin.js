@@ -25,6 +25,15 @@ const createAdmin=async(req,res)=>{
        res.status(StatusCodes.OK).json(createAdmin)
     
     }
+    const checkToken=async(req,res)=>{
+        const {id}=req.user
+
+        if(!id){
+            throw new customErrorAPI("Ivalid Id",StatusCodes.UNAUTHORIZED)
+        }
+
+        res.status(200).json("Token Good")
+    }
 
     const loginAdmin=async(req,res)=>{
 
@@ -128,5 +137,5 @@ const sendEmail = async (req, res, next) => {
 
 
 
-    module.exports={createAdmin,loginAdmin,sendEmail}
+    module.exports={createAdmin,loginAdmin,sendEmail,checkToken}
 
